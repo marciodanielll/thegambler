@@ -4,7 +4,7 @@
   "description": "The Gambler aims to provide a tool for efficiently and accurately handling exceptions in a RESTful application.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "test": "jest --verbose --detectOpenHandles  --forceExit", 
     "lint": "eslint --ext .ts src"
   },
   "repository": {
