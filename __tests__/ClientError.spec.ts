@@ -1,4 +1,4 @@
-import ClientError from '../../src/ClientError';
+import ClientError from '../src/ClientError';
 
 const NewClientError = new ClientError();
 
