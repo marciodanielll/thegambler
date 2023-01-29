@@ -5,7 +5,7 @@ Em construção 👷🏻‍♂️ 🛠️ 🚧
 
 O objetivo do The Gambler é fornecer uma solução eficiente e precisa para lidar com exceções em aplicativos RESTful. 
 
-Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar exceções personalizadas para diferentes tipos de erros HTTP, tanto os gerados pelo cliente quanto pelo próprio servidor.
+Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar exceções personalizadas para diferentes tipos de erros HTTP.
 
 ---
 ## Como instalar
