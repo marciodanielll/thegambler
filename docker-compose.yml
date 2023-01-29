@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  the_gambler:
+    image: node:16-alpine
+    container_name: the_gambler
+    stdin_open: true
+    tty: true
+    command: sh
+    working_dir: /usr/app
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/usr/app
