@@ -1,0 +1,23 @@
+{
+  "name": "thegambler",
+  "version": "1.0.0",
+  "description": "The Gambler aims to provide a tool for efficiently and accurately handling exceptions in a RESTful application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciodanielll/thegambler.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Márcio Daniel",
+    "email": "marcio.daniel@msn.com",
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marciodanielll/thegambler/issues"
+  },
+  "homepage": "https://github.com/marciodanielll/thegambler#readme"
+}
