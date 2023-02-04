@@ -1,5 +1,5 @@
-import IClientError from './interfaces/IClientError';
-import IResponse from './interfaces/IResponse';
+import IClientError from '../interfaces/IClientError';
+import IResponse from '../interfaces/IResponse';
 
 export default class ClientError extends Error implements IClientError {
   badRequest(message?: string | undefined) {
