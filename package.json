@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/marciodanielll/thegambler.git"
   },
-  "keywords": [],
+  "keywords": ["exceptions", "error handling", "RESTful"],
   "author": {
     "name": "Márcio Daniel",
     "email": "marcio.daniel@msn.com"
