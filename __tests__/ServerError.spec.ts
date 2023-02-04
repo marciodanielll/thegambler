@@ -1,4 +1,4 @@
-import ServerError from '../src/ServerError';
+import ServerError from '../src/main/ServerError';
 
 const NewServerError = new ServerError();
 
