@@ -1,4 +1,4 @@
-import IServerError from './interfaces/IServerError';
+import IServerError from '../interfaces/IServerError';
 
 export default class ServerError extends Error implements IServerError {
   internalServerError(message?: string | undefined) {
