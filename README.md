@@ -1,5 +1,5 @@
 
-# The Gambler 🎲
+# The Gambler 🎲 ```(EM CONTRUÇÃO)```
 ---
 ## Motivação
 O objetivo do The Gambler é fornecer uma solução eficiente e precisa para lidar com exceções em aplicativos RESTful. 
