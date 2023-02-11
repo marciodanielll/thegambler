@@ -90,4 +90,4 @@ class ServerError extends Error {
         };
     }
 }
-exports.default = ServerError;
+module.exports = ServerError;
