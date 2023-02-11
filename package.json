@@ -1,15 +1,18 @@
 {
   "name": "thegambler",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "The Gambler aims to provide a tool for efficiently and accurately handling exceptions in a RESTful application.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "transpile": "npx -y tsc",
-    "test": "jest --verbose --detectOpenHandles  --forceExit", 
-    "lint": "eslint --ext .ts src"
+    "test": "jest --verbose --detectOpenHandles  --forceExit",
+    "lint:js": "eslint --ext .js --fix lib",
+    "worker": "ts-node src/worker.ts",
+    "lint": "eslint --ext .ts src",
+    "prepare:publish": "npm run transpile && npm run worker && npm run lint:js"
   },
   "files": [
-    "dist",
+    "lib",
     "README.md"
   ],
   "repository": {
