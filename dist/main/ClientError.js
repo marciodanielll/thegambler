@@ -234,4 +234,4 @@ class ClientError extends Error {
         };
     }
 }
-exports.default = ClientError;
+module.exports = ClientError;

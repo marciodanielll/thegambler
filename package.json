@@ -2,7 +2,7 @@
   "name": "thegambler",
   "version": "1.0.0",
   "description": "The Gambler aims to provide a tool for efficiently and accurately handling exceptions in a RESTful application.",
-  "main": "dist/main/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "transpile": "npx -y tsc",
     "test": "jest --verbose --detectOpenHandles  --forceExit", 
