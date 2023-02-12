@@ -131,7 +131,7 @@ const login = async (req, res, next) => {
 ### Exemplo de manipulação do objeto de erro em um Middleware de Tratamento de Erro
 ```javascript
 const handlerErrors = (err, _req, res, _next) => {
-  console.error(err);
+  console.log(err);
   const statusCode = err.statusCode || 500;
   const message = statusCode !== 500
     ? err.message
