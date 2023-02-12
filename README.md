@@ -118,8 +118,6 @@ const login = ({ email, password }) => {
 ```
 ### Exemplo de gerenciamento de exceções no Controller
 ```javascript
-const { ClientError } = require('thegambler');
-
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
