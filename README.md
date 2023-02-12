@@ -105,7 +105,7 @@ Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a 
 const { ClientError } = require('thegambler');
 
 const login = ({ email, password }) => {
-  const NewClientError = New ClientError();
+  const NewClientError = new ClientError();
 
   const user = Model.getByEmail(email);
   
