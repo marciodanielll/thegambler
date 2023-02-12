@@ -1,5 +1,5 @@
 
-# The Gambler 🃏 ```(VERSÃO BERTA)```
+# The Gambler 🃏 ```(VERSÃO BETA)```
 ---
 ## Motivação
 O objetivo do The Gambler é fornecer uma solução simples para gerar objetos de erro em APIs RESTful construídas em Node.js. 
