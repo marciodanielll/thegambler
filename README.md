@@ -1,10 +1,10 @@
 
-# The Gambler 🎲 ```(EM CONTRUÇÃO)```
+# The Gambler 🃏 ```(VERSÃO BERTA)```
 ---
 ## Motivação
-O objetivo do The Gambler é fornecer uma solução eficiente e precisa para lidar com exceções em aplicativos RESTful. 
+O objetivo do The Gambler é fornecer uma solução simples para gerar objetos de erro em APIs RESTful construídas em Node.js. 
 
-Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar exceções personalizadas para diferentes tipos de erros.
+Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar objetos de erros personalizadas.
 
 ---
 ## Como instalar
@@ -70,11 +70,14 @@ const { ClientError } = require('thegambler');
 const NewClientError = new ClientError();
 
 (() => {
-  throw NewClienteError.badRequest('Custom message');
+  return  NewClienteError.badRequest('Custom message');
+}());
+
+(() => {
+  throw  NewClienteError.badRequest('Custom message');
 }());
 
 // Ou
-
 (() => {
   throw NewClienteError.badRequest();
  /* Quando não for informado um argumento, a mensagem padrão
@@ -99,11 +102,15 @@ Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a 
 ---
 ### Exemplo de implementação na camada de Serviço ```(Service)```
 ```javascript
+const { ClientError } = require('thegambler');
+
 const login = ({ email, password }) => {
+  const NewClientError = New ClientError();
+
   const user = Model.getByEmail(email);
   
   if( user === null || password !== user.password)) {
-    throw new ClientError.badRequest('Invalid Email or Password');
+    throw NewClientError.badRequest('Invalid Email or Password');
   }
 
   return { token: generateToken({ email, id: user.id }) } ;
@@ -111,6 +118,8 @@ const login = ({ email, password }) => {
 ```
 ### Exemplo de gerenciamento de exceções no Controller
 ```javascript
+const { ClientError } = require('thegambler');
+
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
