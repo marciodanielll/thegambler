@@ -4,7 +4,7 @@
 ## Motivação
 O objetivo do The Gambler é fornecer uma solução simples para gerar objetos de erro em APIs RESTful construídas em Node.js. 
 
-Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar objetos de erros personalizadas.
+Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com métodos para gerar objetos de erro personalizados.
 
 ---
 ## Como instalar
