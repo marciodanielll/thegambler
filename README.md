@@ -62,27 +62,23 @@ Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com m�
 </details>
 
 ---
-## Como usar
+## Como manipulá-lo
 
 ```javascript
-const { ClientError } = require('thegambler');
+const { ClientError, ServerError } = require('thegambler');
 
 const NewClientError = new ClientError();
+const NewServerError = new ServerError();
 
-(() => {
-  return  NewClienteError.badRequest('Custom message');
-}());
-
-(() => {
-  throw  NewClienteError.badRequest('Custom message');
-}());
+console.log(NewClienteError.badRequest('Custom message'));
+console.log(NewServerError.internalServerError('Custom message'));
 
 // Ou
-(() => {
-  throw NewClienteError.badRequest();
- /* Quando não for informado um argumento, a mensagem padrão
-   será o nome do método, neste caso, 'Bad Request' */
-}());
+console.log(NewClienteError.badRequest());
+/*
+Quando não for informado um argumento, a mensagem padrão
+   será o nome do método, neste caso, 'Bad Request'
+*/
 ```
 
 Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a seguir:
@@ -103,11 +99,13 @@ Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a 
 ### Exemplo de implementação na camada de Serviço ```(Service)```
 ```javascript
 const { ClientError } = require('thegambler');
+const { userModel } = require('../models');
+const { generateToken } = require('../auth');
 
 const login = ({ email, password }) => {
   const NewClientError = new ClientError();
 
-  const user = Model.getByEmail(email);
+  const user = userModel.getByEmail(email);
   
   if( user === null || password !== user.password)) {
     throw NewClientError.badRequest('Invalid Email or Password');
@@ -118,12 +116,17 @@ const login = ({ email, password }) => {
 ```
 ### Exemplo de gerenciamento de exceções no Controller
 ```javascript
+const { userService } = require('../services');
+
 const login = async (req, res, next) => {
   const { email, password } = req.body;
+
   try {
-    const { token } = Service.login({ email, password });
+    const { token } = userService.login({ email, password });
+
     res.status(200).json({ token });
   } catch (error) {
+
     next(error);
   }
 };
@@ -132,10 +135,13 @@ const login = async (req, res, next) => {
 ```javascript
 const handlerErrors = (err, _req, res, _next) => {
   console.log(err);
+
   const statusCode = err.statusCode || 500;
+
   const message = statusCode !== 500
     ? err.message
     : 'Internal Server Error';
+
   res.status(statusCode).json({ message });
 };
 ```
