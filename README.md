@@ -154,5 +154,5 @@ const handlerErrors = (err, _req, res, _next) => {
 
   Mantenedor [M.D.](https://www.linkedin.com/in/marciodanielll/)  
   Apoiador [Marcley Rosa](https://www.linkedin.com/in/marcley-rosa-8169a6105/)
-
+  Apoiador [Henrique Baeta](https://www.linkedin.com/in/henriquebaetaleite/)
 ----
