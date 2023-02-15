@@ -153,8 +153,9 @@ const handlerErrors = (err, _req, res, _next) => {
   Se desejar contribuir com o projeto, sinta-se à vontade para enviar uma pull request com sugestões de melhorias e novas funcionalidades.
 
 
- Mantenedor [M.D.](https://www.linkedin.com/in/marciodanielll/)  
- Apoiador [Marcley Rosa](https://www.linkedin.com/in/marcley-rosa-8169a6105/) </br>
- Apoiador [Henrique Baeta](https://www.linkedin.com/in/henriquebaetaleite/)
+ ### Mantenedores
+  - [Daniel (M.D.)](https://www.linkedin.com/in/marciodanielll/)  
+  - [Marcley Rosa](https://www.linkedin.com/in/marcley-rosa-8169a6105/) </br>
+  - [Henrique Baeta](https://www.linkedin.com/in/henriquebaetaleite/)
 
 ----
