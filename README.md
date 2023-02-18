@@ -8,7 +8,9 @@ Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com m�
 
 ---
 ## Como instalar
-``npm install thegambler``
+```sh
+npm install thegambler
+```
 
 ----
 ## Métodos à disposição
