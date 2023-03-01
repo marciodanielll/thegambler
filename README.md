@@ -69,14 +69,14 @@ npm install thegambler
 ```javascript
 const { ClientError, ServerError } = require('thegambler');
 
-const NewClientError = new ClientError();
-const NewServerError = new ServerError();
+const clientError = new ClientError();
+const serverError = new ServerError();
 
-console.log(NewClienteError.badRequest('Custom message'));
-console.log(NewServerError.internalServerError('Custom message'));
+console.log(clienteError.badRequest('Custom message'));
+console.log(serverError.internalServerError('Custom message'));
 
 // Ou
-console.log(NewClienteError.badRequest());
+console.log(clienteError.badRequest());
 /*
 Quando não for informado um argumento, a mensagem padrão
    será o nome do método, neste caso, 'Bad Request'
@@ -87,10 +87,10 @@ Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a 
 
 ```javascript
 {
-  statusCode: Number,
-  message: String,
-  type: String,
-  stack: String,
+  statusCode: number,
+  message: string,
+  type: string,
+  stack: string,
 };
 ```
 - **statusCode**: o código de resposta que será enviado ao cliente, indicando o status da requisição;
@@ -107,12 +107,12 @@ const { userModel } = require('../models');
 const { generateToken } = require('../auth');
 
 const login = ({ email, password }) => {
-  const NewClientError = new ClientError();
+  const clientError = new ClientError();
 
   const user = userModel.getByEmail(email);
   
   if( user === null || password !== user.password)) {
-    throw NewClientError.badRequest('Invalid Email or Password');
+    throw clientError.badRequest('Invalid Email or Password');
   }
 
   return { token: generateToken({ email, id: user.id }) } ;
@@ -148,6 +148,53 @@ const handlerErrors = (err, _req, res, _next) => {
 
   res.status(statusCode).json({ message });
 };
+```
+
+### Exemplo Real de Uso com TypeScript
+
+```typescript
+import { NextFunction, Request, Response } from 'express';
+import httpStatusCode from 'http-status-codes';
+import { ClientError, ServerError } from 'thegambler';
+import SaleService from '../../core/services/sale.service';
+import {
+  ISaleItemsResponse,
+  ISaleForRequest,
+  ISaleController,
+} from '../../types/sales.type';
+
+const { log } = console;
+
+export default class SaleController implements ISaleController {
+  private readonly saleService: SaleService;
+
+  private readonly clientError: ClientError;
+
+  private readonly serverError: ServerError;
+
+  constructor() {
+    this.saleService = new SaleService();
+    this.clientError = new ClientError();
+    this.serverError = new ServerError();
+  }
+
+  async getSaleById(req: Request, res: Response, next: NextFunction) {
+    const { id } = req.params;
+
+    try {
+      const sales: ISaleItemsResponse[] | null = await this.saleService.getSaleById(Number(id));
+
+      if (sales === null) {
+        return next(this.clientError.notFound('Sale not found'));
+      }
+
+      return res.status(httpStatusCode.OK).json(sales);
+    } catch (error) {
+      log(error);
+
+      return next(this.serverError.internalServerError());
+    }
+  }
 ```
 ----
   Se você encontrar algum ```erro``` ou ```bug``` no código, por favor, nos ajude abrindo uma [issue](https://github.com/marciodanielll/thegambler/issues).
