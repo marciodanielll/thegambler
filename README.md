@@ -19,6 +19,7 @@ npm install thegambler
   <summary><strong>Classe ClientError 🐞</strong></summary>
 
 - badRequest
+- paymentRequired
 - unauthorized
 - forbidden
 - notFound
@@ -115,18 +116,14 @@ console.log(clienteError.badRequest());
 
 Todos os métodos de ambas classes retornam um objeto de erro com a estrutura a seguir:
 
-```javascript
-{
-  statusCode: number,
-  message: string,
-  type: string,
-  stack: string,
-};
-```
-- **statusCode**: o código de resposta que será enviado ao cliente, indicando o status da requisição;
-- **message**: a mensagem que será incluída no corpo da resposta, fornecendo informações sobre o erro;
-- **type**: identifica o tipo de erro, facilitando o rastreamento de problemas através do gerenciamento de logs;
-- **stack**: é a pilha de chamadas de função que conduziu ao erro, permitindo a investigação detalhada do problema através do gerenciamento de logs.
+| key | type | descrição|
+|------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
+| statusCode | number| O código de resposta que será enviado ao cliente, indicando o status da requisição.|
+| message | string | A mensagem que será incluída no corpo da resposta, fornecendo informações sobre o erro.|
+| type | string | Identifica o tipo de erro, facilitando o rastreamento de problemas através do gerenciamento de logs. |
+| stack | string | É a pilha de chamadas de função que conduziu ao erro, permitindo a investigação detalhada do problema através do gerenciamento de logs. |
+
+
 ---
 
 ## Considerando uma API criada com o Express
