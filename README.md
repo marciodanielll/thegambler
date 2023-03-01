@@ -9,7 +9,7 @@ Ele oferece duas classes, a ``ClientError`` e a ``ServerError``, cada uma com m√
 ---
 ## Como instalar
 ```sh
-npm install thegambler
+$ npm install thegambler
 ```
 
 ----
