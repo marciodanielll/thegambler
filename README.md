@@ -150,7 +150,7 @@ const handlerErrors = (err, _req, res, _next) => {
 };
 ```
 
-### Exemplo Real de Uso com TypeScript
+### Exemplo de uso com TypeScript
 
 ```typescript
 import { NextFunction, Request, Response } from 'express';
