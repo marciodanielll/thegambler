@@ -73,13 +73,43 @@ const clientError = new ClientError();
 const serverError = new ServerError();
 
 console.log(clienteError.badRequest('Custom message'));
-console.log(serverError.internalServerError('Custom message'));
+/*
+{
+  statusCode: 400,
+  message: 'Custom message',
+  type: 'Bad Request',
+  stack: 'Error\n' +
+    '    at Object.<anonymous> (/Users/md/Desktop/teste/index.js:3:21)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1105:14)\n' +
+    ....
+ }
+*/
 
-// Ou
+console.log(serverError.internalServerError('Custom message'));
+/*
+{
+  statusCode: 500,
+  message: 'Custom message',
+  type: 'Internal Server Error',
+  stack: 'Error\n' +
+    '    at Object.<anonymous> (/Users/md/Desktop/teste/index.js:4:21)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1105:14)\n' +
+}
+*/
+
+/* Ou */
+
 console.log(clienteError.badRequest());
 /*
-Quando não for informado um argumento, a mensagem padrão
-   será o nome do método, neste caso, 'Bad Request'
+{
+  statusCode: 400,
+  message: 'Bad Request',
+  type: 'Bad Request',
+  stack: 'Error\n' +
+    '    at Object.<anonymous> (/Users/md/Desktop/teste/index.js:3:21)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1105:14)\n' +
+...
+}
 */
 ```
 
@@ -182,7 +212,8 @@ export default class SaleController implements ISaleController {
     const { id } = req.params;
 
     try {
-      const sales: ISaleItemsResponse[] | null = await this.saleService.getSaleById(Number(id));
+      const sales: ISaleItemsResponse[] | null = await this
+      .saleService.getSaleById(Number(id));
 
       if (sales === null) {
         return next(this.clientError.notFound('Sale not found'));
