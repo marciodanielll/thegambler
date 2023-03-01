@@ -233,6 +233,5 @@ export default class SaleController implements ISaleController {
  ### Mantenedores
   - [Daniel (M.D.)](https://www.linkedin.com/in/marciodanielll/)  
   - [Marcley Rosa](https://www.linkedin.com/in/marcley-rosa-8169a6105/) </br>
-  - [Henrique Baeta](https://www.linkedin.com/in/henriquebaetaleite/)
-
+  
 ----
